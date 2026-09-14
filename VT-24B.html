@@ -1,56 +1,75 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой сайт</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="site1.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Мой сайт</h1>
+    <h1>Мой сайт</h1>
 
-        <nav>
-            <button onclick="showTab('home')">Главная</button>
-            <button onclick="showTab('about')">Danial</button>
-            <button onclick="showTab('services')">Dias</button>
-            <button onclick="showTab('gallery')">Ayazhan</button>
-            <button onclick="showTab('contacts')">Aliya</button>
-        </nav>
-    </header>
+    <div class="tabs">
+        <button onclick="openTab('home')">Главная</button>
+        <button onclick="openTab('danial')">Danial</button>
+        <button onclick="openTab('dias')">Dias</button>
+        <button onclick="openTab('ayazhan')">Ayazhan</button>
+        <button onclick="openTab('aliya')">Aliya</button>
+    </div>
 
-    <main>
+    <div id="home" class="tab-content active">
+        <h2>Главная</h2>
+        <p>Добро пожаловать на наш сайт!</p>
+        <p>На этом сайте представлены резюме участников нашей команды.</p>
+    </div>
 
-        <section id="home" class="tab active">
-            <h2>Главная</h2>
-            <p>Добро пожаловать на наш сайт!</p>
-        </section>
+    <div id="danial" class="tab-content">
+        <h2>Danial</h2>
 
-        <section id="about" class="tab">
-            <h2>Danial</h2>
-            <p>Dania's CV</p>
-        </section>
+        <h3>Danial's CV</h3>
 
-        <section id="services" class="tab">
-            <h2>Dias</h2>
-            <p>Dias's CV</p>
-        </section>
+        <p><b>Имя:</b> Danial</p>
+        <p><b>Специальность:</b> Программист</p>
+        <p><b>Навыки:</b> HTML, CSS, JavaScript</p>
+        <p><b>О себе:</b> Начинающий разработчик, изучающий веб-программирование.</p>
+    </div>
 
-        <section id="gallery" class="tab">
-            <h2>Ayazhan</h2>
-            <p>Ayazhan's CV</p>
-        </section>
+    <div id="dias" class="tab-content">
+        <h2>Dias</h2>
 
-        <section id="contacts" class="tab">
-            <h2>Aliya</h2>
-            <p>Aliya's CV</p>
-        </section>
+        <h3>Dias's CV</h3>
 
-    </main>
+        <p><b>Имя:</b> Dias</p>
+        <p><b>Специальность:</b> Программист</p>
+        <p><b>Навыки:</b> Java, SQL, HTML, CSS</p>
+        <p><b>О себе:</b> Студент, изучающий программирование и информационные технологии.</p>
+    </div>
 
-    <script src="script.js"></script>
+    <div id="ayazhan" class="tab-content">
+        <h2>Ayazhan</h2>
+
+        <h3>Ayazhan's CV</h3>
+
+        <p><b>Имя:</b> Ayazhan</p>
+        <p><b>Специальность:</b> Веб-разработчик</p>
+        <p><b>Навыки:</b> HTML, CSS, JavaScript</p>
+        <p><b>О себе:</b> Интересуется созданием современных веб-сайтов.</p>
+    </div>
+
+    <div id="aliya" class="tab-content">
+        <h2>Aliya</h2>
+
+        <h3>Aliya's CV</h3>
+
+        <p><b>Имя:</b> Aliya</p>
+        <p><b>Специальность:</b> Дизайнер</p>
+        <p><b>Навыки:</b> Web Design, HTML, CSS</p>
+        <p><b>О себе:</b> Занимается дизайном и созданием интерфейсов сайтов.</p>
+    </div>
+
+    <script src="site1.js"></script>
 
 </body>
 </html>
