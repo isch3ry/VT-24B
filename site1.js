@@ -1,7 +1,7 @@
-function showTab(tabName) {
+function openTab(tabName) {
 
-    // Получаем все вкладки
-    const tabs = document.querySelectorAll(".tab");
+    // Находим все вкладки
+    let tabs = document.querySelectorAll(".tab-content");
 
     // Скрываем все вкладки
     tabs.forEach(function(tab) {
@@ -9,9 +9,5 @@ function showTab(tabName) {
     });
 
     // Показываем выбранную вкладку
-    const selectedTab = document.getElementById(tabName);
-
-    if (selectedTab) {
-        selectedTab.classList.add("active");
-    }
+    document.getElementById(tabName).classList.add("active");
 }
