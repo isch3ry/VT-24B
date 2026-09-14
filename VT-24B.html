@@ -1,8 +1,56 @@
-Dias  nurgaldias2406@gmail.com
-danial turmagambetov
-<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
 
+    <header>
+        <h1>Мой сайт</h1>
 
+        <nav>
+            <button onclick="showTab('home')">Главная</button>
+            <button onclick="showTab('about')">О нас</button>
+            <button onclick="showTab('services')">Услуги</button>
+            <button onclick="showTab('gallery')">Галерея</button>
+            <button onclick="showTab('contacts')">Контакты</button>
+        </nav>
+    </header>
 
-ayazhansis
+    <main>
+
+        <section id="home" class="tab active">
+            <h2>Главная</h2>
+            <p>Добро пожаловать на наш сайт!</p>
+        </section>
+
+        <section id="about" class="tab">
+            <h2>О нас</h2>
+            <p>Здесь информация о нашей компании.</p>
+        </section>
+
+        <section id="services" class="tab">
+            <h2>Услуги</h2>
+            <p>Здесь представлены наши услуги.</p>
+        </section>
+
+        <section id="gallery" class="tab">
+            <h2>Галерея</h2>
+            <p>Здесь будут фотографии.</p>
+        </section>
+
+        <section id="contacts" class="tab">
+            <h2>Контакты</h2>
+            <p>Телефон: +7 700 000 00 00</p>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
