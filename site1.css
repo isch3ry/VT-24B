@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+header {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav button {
+    padding: 12px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    background: white;
+    color: #222;
+    border-radius: 5px;
+}
+
+nav button:hover {
+    background: #ddd;
+}
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.tab {
+    display: none;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.tab.active {
+    display: block;
+}
