@@ -63,9 +63,18 @@ let paragraph = document.getElementById("change-paragraph");
 
 paragraph.addEventListener("click", function() {
 
-    paragraph.style.color = "blue";
+    if (paragraph.style.color === "blue") {
 
-    paragraph.style.fontSize = "24px";
+        // Возвращаем прежний вид
+        paragraph.style.color = "";
+        paragraph.style.fontSize = "";
+
+    } else {
+
+        // Изменяем вид
+        paragraph.style.color = "blue";
+        paragraph.style.fontSize = "24px";
+    }
 
 });
 
