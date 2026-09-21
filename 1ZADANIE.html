@@ -18,44 +18,48 @@
     </div>
 
     <!-- TASK 1 -->
-    <div id="task1" class="tab-content active">
+<div id="task1" class="tab-content active">
 
-        <h2>Task 1. Работа с DOM</h2>
+    <h2>Task 1. Работа с JavaScript</h2>
 
-        <h3>1. Изменение элемента по ID</h3>
+    <!-- 1. Изменение текста по ID -->
+    <h3>1. Изменение текста элемента</h3>
 
-        <p id="text-element">Исходный текст</p>
+    <p id="text-element">Исходный текст</p>
 
-        <button onclick="changeText()">
-            Изменить текст
-        </button>
-
-
-        <h3>2. Создание нового элемента</h3>
-
-        <button onclick="createNewDiv()">
-            Создать новый div
-        </button>
+    <button onclick="changeText()">
+        Изменить текст
+    </button>
 
 
-        <h3>3. Удаление элемента</h3>
+    <!-- 2. Создание нового элемента -->
+    <h3>2. Создание нового элемента</h3>
 
-        <p class="old-element">
-            Этот элемент будет удалён
-        </p>
-
-        <button onclick="deleteOldElement()">
-            Удалить элемент
-        </button>
+    <button onclick="createNewDiv()">
+        Создать новый div
+    </button>
 
 
-        <h3>4. Изменение абзаца при клике</h3>
+    <!-- 3. Удаление элемента -->
+    <h3>3. Удаление элемента</h3>
 
-        <p id="change-paragraph">
-            Это изменяемый абзац.
-        </p>
+    <p class="old-element">
+        Этот элемент нужно удалить
+    </p>
 
-    </div>
+    <button onclick="deleteOldElement()">
+        Удалить old-element
+    </button>
+
+
+    <!-- 4. Изменение абзаца при клике -->
+    <h3>4. Изменение абзаца</h3>
+
+    <p id="change-paragraph">
+        Это изменяемый абзац.
+    </p>
+
+</div>
 
 
     <!-- TASK 2 -->

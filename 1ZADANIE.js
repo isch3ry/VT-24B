@@ -1,18 +1,15 @@
 // ==============================
-// ФУНКЦИЯ ПЕРЕКЛЮЧЕНИЯ ВКЛАДОК
+// ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК
 // ==============================
 
 function openTab(tabName) {
 
-    // Находим все вкладки
     let tabs = document.querySelectorAll(".tab-content");
 
-    // Скрываем все вкладки
     tabs.forEach(function(tab) {
         tab.classList.remove("active");
     });
 
-    // Показываем выбранную вкладку
     document.getElementById(tabName).classList.add("active");
 }
 
@@ -20,6 +17,7 @@ function openTab(tabName) {
 // ==============================
 // TASK 1
 // ==============================
+
 
 // 1. Найти элемент по ID
 // и изменить его текст
@@ -33,7 +31,8 @@ function changeText() {
 
 
 // 2. Создать новый div
-// и добавить его в конец body
+// с классом new-div
+// и текстом "Я новый элемент"
 
 function createNewDiv() {
 
@@ -60,7 +59,7 @@ function deleteOldElement() {
 }
 
 
-// 4. Создать абзац
+// 4. Создать элемент <p>
 // и изменить его при клике
 
 let paragraph = document.getElementById("change-paragraph");
