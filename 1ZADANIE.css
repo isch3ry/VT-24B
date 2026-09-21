@@ -1,4 +1,16 @@
+/* Переключение вкладок */
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
 /* Элемент Task 1 */
+
 .new-div {
     margin-top: 15px;
     padding: 15px;
@@ -6,14 +18,18 @@
     border-radius: 8px;
 }
 
+
 /* Элемент Task 2 */
+
 .box {
     padding: 20px;
     background-color: lightgray;
     border-radius: 8px;
 }
 
-/* Класс active */
+
+/* Класс active для элемента Task 2 */
+
 .box.active {
     background-color: lightblue;
     border: 2px solid blue;
