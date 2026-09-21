@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>4 TASKS</title>
+    <link rel="stylesheet" href="site1.css">
+</head>
+
+<body>
+
+    <h1>JavaScript Tasks</h1>
+
+    <!-- Кнопки вкладок -->
+    <div class="tabs">
+        <button onclick="openTab('task1')">Task 1</button>
+        <button onclick="openTab('task2')">Task 2</button>
+    </div>
+
+    <!-- TASK 1 -->
+    <div id="task1" class="tab-content active">
+
+        <h2>Task 1. Работа с DOM</h2>
+
+        <h3>1. Изменение элемента по ID</h3>
+
+        <p id="text-element">Исходный текст</p>
+
+        <button onclick="changeText()">
+            Изменить текст
+        </button>
+
+
+        <h3>2. Создание нового элемента</h3>
+
+        <button onclick="createNewDiv()">
+            Создать новый div
+        </button>
+
+
+        <h3>3. Удаление элемента</h3>
+
+        <p class="old-element">
+            Этот элемент будет удалён
+        </p>
+
+        <button onclick="deleteOldElement()">
+            Удалить элемент
+        </button>
+
+
+        <h3>4. Изменение абзаца при клике</h3>
+
+        <p id="change-paragraph">
+            Это изменяемый абзац.
+        </p>
+
+    </div>
+
+
+    <!-- TASK 2 -->
+    <div id="task2" class="tab-content">
+
+        <h2>Task 2. Управление классами элементов</h2>
+
+        <div id="class-element" class="box">
+            Элемент для работы с классами
+        </div>
+
+        <br>
+
+        <button onclick="toggleActive()">
+            Добавить / удалить класс active
+        </button>
+
+        <button onclick="showClasses()">
+            Показать классы
+        </button>
+
+        <p id="class-list">
+            Здесь появится список классов
+        </p>
+
+    </div>
+
+
+    <script src="site1.js"></script>
+
+</body>
+</html>
