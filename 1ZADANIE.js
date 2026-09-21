@@ -79,21 +79,22 @@ paragraph.addEventListener("click", function() {
 });
 
 // ==============================
+// ==============================
 // TASK 2
 // ==============================
 
 // Элемент, с которым работаем
-
 let classElement = document.getElementById("class-element");
 
 
-// Добавить класс active,
-// если его нет,
-// и удалить, если он есть
+// Добавить / удалить класс active
+// и сразу обновить список классов
 
 function toggleActive() {
 
     classElement.classList.toggle("active");
+
+    showClasses();
 }
 
 
