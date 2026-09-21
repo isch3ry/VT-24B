@@ -1,7 +1,6 @@
 // ==============================
 // ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК
 // ==============================
-
 function openTab(tabName) {
 
     let tabs = document.querySelectorAll(".tab-content");
@@ -13,11 +12,9 @@ function openTab(tabName) {
     document.getElementById(tabName).classList.add("active");
 }
 
-
 // ==============================
 // TASK 1
 // ==============================
-
 
 // 1. Найти элемент по ID
 // и изменить его текст
