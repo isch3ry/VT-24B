@@ -196,7 +196,7 @@ function countColoredCells() {
 
 
 // ==============================
-// TASK 4
+//TASK 4
 // ==============================
 
 function toggleDarkTheme() {
