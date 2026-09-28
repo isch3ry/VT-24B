@@ -114,6 +114,8 @@ function showClasses() {
 // TASK 3
 // ==============================
 
+// Создание таблицы
+
 function createTable() {
 
     let rows = document.getElementById("rows").value;
@@ -123,6 +125,9 @@ function createTable() {
 
     // Удаляем старую таблицу
     container.innerHTML = "";
+
+    // Сбрасываем счетчик
+    updateCellCount();
 
     let table = document.createElement("table");
 
@@ -134,13 +139,15 @@ function createTable() {
 
             let cell = document.createElement("td");
 
-            cell.textContent = i + 1 + ", " + (j + 1);
+            cell.textContent = (i + 1) + ", " + (j + 1);
 
-            // При клике меняем цвет ячейки
+            // При клике меняем цвет
             cell.addEventListener("click", function() {
 
                 cell.classList.toggle("colored-cell");
 
+                // Сразу обновляем количество
+                updateCellCount();
             });
 
             row.appendChild(cell);
@@ -152,6 +159,29 @@ function createTable() {
     container.appendChild(table);
 }
 
+
+// Подсчет цветных ячеек
+
+function updateCellCount() {
+
+    let coloredCells =
+        document.querySelectorAll(".colored-cell");
+
+    document.getElementById("cell-count").textContent =
+        "Количество цветных ячеек: " + coloredCells.length;
+}
+
+
+// Удаление таблицы
+
+function deleteTable() {
+
+    let container = document.getElementById("table-container");
+
+    container.innerHTML = "";
+
+    updateCellCount();
+}
 
 // Подсчет цветных ячеек
 
