@@ -13,9 +13,11 @@
 
     <!-- Кнопки вкладок -->
     <div class="tabs">
-        <button onclick="openTab('task1')">Task 1</button>
-        <button onclick="openTab('task2')">Task 2</button>
-    </div>
+    <button onclick="openTab('task1')">Task 1</button>
+    <button onclick="openTab('task2')">Task 2</button>
+    <button onclick="openTab('task3')">Task 3</button>
+    <button onclick="openTab('task4')">Task 4</button>
+</div>
    
 
 
@@ -91,6 +93,51 @@
 
 
     <script src="1ZADANIE.js"></script>
+    
+    <!-- TASK 3 -->
+<div id="task3" class="tab-content">
+
+    <h2>Task 3. Генерация таблицы</h2>
+
+    <p>Количество строк:</p>
+    <input type="number" id="rows" min="1">
+
+    <p>Количество столбцов:</p>
+    <input type="number" id="columns" min="1">
+
+    <br><br>
+
+    <button onclick="createTable()">
+        Создать таблицу
+    </button>
+
+    <button onclick="countColoredCells()">
+        Посчитать цветные ячейки
+    </button>
+
+    <p id="cell-count">
+        Количество цветных ячеек: 0
+    </p>
+
+    <div id="table-container"></div>
+
+</div>
+
+
+<!-- TASK 4 -->
+<div id="task4" class="tab-content">
+
+    <h2>Task 4. Темная тема</h2>
+
+    <p>
+        Нажмите на кнопку, чтобы изменить цветовой режим страницы.
+    </p>
+
+    <button onclick="toggleDarkTheme()">
+        Светлая / темная тема
+    </button>
+
+</div>
 
 </body>
 </html>

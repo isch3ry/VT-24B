@@ -67,3 +67,50 @@ h1 {
     background-color: lightblue;
     border: 2px solid blue;
 }
+/* ==============================
+   TASK 3
+   ============================== */
+
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+td {
+    width: 60px;
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+}
+
+.colored-cell {
+    background-color: lightgreen;
+}
+
+
+/* ==============================
+   TASK 4
+   ============================== */
+
+.dark-theme {
+    background-color: #222;
+    color: white;
+}
+
+.dark-theme .tab-content {
+    background-color: #333;
+    color: white;
+}
+
+.dark-theme button {
+    background-color: #555;
+    color: white;
+    border: 1px solid white;
+}
+
+.dark-theme input {
+    background-color: #444;
+    color: white;
+    border: 1px solid white;
+}
