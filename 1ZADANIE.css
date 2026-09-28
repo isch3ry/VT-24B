@@ -1,7 +1,40 @@
-/* Переключение вкладок */
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    text-align: center;
+}
+
+.tabs {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tabs button {
+    padding: 12px 25px;
+    margin: 5px;
+    border: 1px solid #999;
+    background-color: white;
+    cursor: pointer;
+}
+
+.tabs button:hover {
+    background-color: #ddd;
+}
+
+
+/* Вкладки */
 
 .tab-content {
     display: none;
+    background-color: white;
+    padding: 30px;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 10px;
 }
 
 .tab-content.active {
@@ -28,9 +61,56 @@
 }
 
 
-/* Класс active для элемента Task 2 */
+/* Класс active внутри Task 2 */
 
 .box.active {
     background-color: lightblue;
     border: 2px solid blue;
+}
+/* ==============================
+   TASK 3
+   ============================== */
+
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+td {
+    width: 60px;
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+}
+
+.colored-cell {
+    background-color: lightgreen;
+}
+
+
+/* ==============================
+   TASK 4
+   ============================== */
+
+.dark-theme {
+    background-color: #4b4646;
+    color: white;
+}
+
+.dark-theme .tab-content {
+    background-color: #242136;
+    color: white;
+}
+
+.dark-theme button {
+    background-color: #716767;
+    color: white;
+    border: 1px solid white;
+}
+
+.dark-theme input {
+    background-color: #444;
+    color: white;
+    border: 1px solid white;
 }
