@@ -17,6 +17,7 @@
     <button onclick="openTab('task2')">Task 2</button>
     <button onclick="openTab('task3')">Task 3</button>
     <button onclick="openTab('task4')">Task 4</button>
+    <button onclick="openTab('task5')">Task 5</button>
 </div>
    
 
@@ -140,4 +141,53 @@ a
 </div>
 
 </body>
+
+<!-- TASK 5 -->
+<div id="task5" class="tab-content">
+
+    <h2>Task 5. Работа с DummyJSON</h2>
+    <label for="languageSelect">Язык:</label>
+
+<select id="languageSelect" onchange="changeLanguage()">
+    <option value="ru">Русский</option>
+    <option value="en">English</option>
+</select>
+
+    <button onclick="loadProducts()">
+        Загрузить товары
+    </button>
+
+    <br><br>
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Поиск товара"
+    >
+
+    <button onclick="searchProducts()">
+        Поиск
+    </button>
+
+    <h3>Добавить товар</h3>
+
+    <input
+        type="text"
+        id="productTitle"
+        placeholder="Название товара"
+    >
+
+    <input
+        type="number"
+        id="productPrice"
+        placeholder="Цена"
+    >
+
+    <button onclick="addProduct()">
+        Добавить
+    </button>
+
+    <div id="products"></div>
+
+</div>
 </html>

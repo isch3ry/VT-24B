@@ -1,6 +1,7 @@
 // ==============================
 // ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК
 // ==============================
+
 function openTab(tabName) {
 
     let tabs = document.querySelectorAll(".tab-content");
@@ -12,12 +13,12 @@ function openTab(tabName) {
     document.getElementById(tabName).classList.add("active");
 }
 
+
 // ==============================
 // TASK 1
 // ==============================
 
-// 1. Найти элемент по ID
-// и изменить его текст
+// 1. Изменение текста
 
 function changeText() {
 
@@ -27,9 +28,7 @@ function changeText() {
 }
 
 
-// 2. Создать новый div
-// с классом new-div
-// и текстом "Я новый элемент"
+// 2. Создание нового div
 
 function createNewDiv() {
 
@@ -43,8 +42,7 @@ function createNewDiv() {
 }
 
 
-// 3. Удалить элемент
-// с классом old-element
+// 3. Удаление элемента
 
 function deleteOldElement() {
 
@@ -56,8 +54,7 @@ function deleteOldElement() {
 }
 
 
-// 4. Создать элемент <p>
-// и изменить его при клике
+// 4. Изменение абзаца
 
 let paragraph = document.getElementById("change-paragraph");
 
@@ -65,30 +62,25 @@ paragraph.addEventListener("click", function() {
 
     if (paragraph.style.color === "blue") {
 
-        // Возвращаем прежний вид
         paragraph.style.color = "";
         paragraph.style.fontSize = "";
 
     } else {
 
-        // Изменяем вид
         paragraph.style.color = "blue";
         paragraph.style.fontSize = "24px";
     }
 
 });
 
-// ==============================
+
 // ==============================
 // TASK 2
 // ==============================
 
-// Элемент, с которым работаем
-let classElement = document.getElementById("class-element");
+let classElement =
+    document.getElementById("class-element");
 
-
-// Добавить / удалить класс active
-// и сразу обновить список классов
 
 function toggleActive() {
 
@@ -97,9 +89,6 @@ function toggleActive() {
     showClasses();
 }
 
-
-// Вывести список всех классов
-// в консоль и в <p>
 
 function showClasses() {
 
@@ -110,43 +99,47 @@ function showClasses() {
     document.getElementById("class-list").textContent =
         "Классы элемента: " + Array.from(classes).join(", ");
 }
+
+
 // ==============================
 // TASK 3
 // ==============================
 
-// Создание таблицы
-
 function createTable() {
 
-    let rows = document.getElementById("rows").value;
-    let columns = document.getElementById("columns").value;
+    let rows =
+        document.getElementById("rows").value;
 
-    let container = document.getElementById("table-container");
+    let columns =
+        document.getElementById("columns").value;
 
-    // Удаляем старую таблицу
+    let container =
+        document.getElementById("table-container");
+
     container.innerHTML = "";
 
-    // Сбрасываем счетчик
     updateCellCount();
 
-    let table = document.createElement("table");
+    let table =
+        document.createElement("table");
 
     for (let i = 0; i < rows; i++) {
 
-        let row = document.createElement("tr");
+        let row =
+            document.createElement("tr");
 
         for (let j = 0; j < columns; j++) {
 
-            let cell = document.createElement("td");
+            let cell =
+                document.createElement("td");
 
-            cell.textContent = (i + 1) + ", " + (j + 1);
+            cell.textContent =
+                (i + 1) + ", " + (j + 1);
 
-            // При клике меняем цвет
             cell.addEventListener("click", function() {
 
                 cell.classList.toggle("colored-cell");
 
-                // Сразу обновляем количество
                 updateCellCount();
             });
 
@@ -160,30 +153,27 @@ function createTable() {
 }
 
 
-// Подсчет цветных ячеек
-
 function updateCellCount() {
 
     let coloredCells =
         document.querySelectorAll(".colored-cell");
 
     document.getElementById("cell-count").textContent =
-        "Количество цветных ячеек: " + coloredCells.length;
+        "Количество цветных ячеек: " +
+        coloredCells.length;
 }
 
 
-// Удаление таблицы
-
 function deleteTable() {
 
-    let container = document.getElementById("table-container");
+    let container =
+        document.getElementById("table-container");
 
     container.innerHTML = "";
 
     updateCellCount();
 }
 
-// Подсчет цветных ячеек
 
 function countColoredCells() {
 
@@ -191,16 +181,548 @@ function countColoredCells() {
         document.querySelectorAll(".colored-cell");
 
     document.getElementById("cell-count").textContent =
-        "Количество цветных ячеек: " + coloredCells.length;
+        "Количество цветных ячеек: " +
+        coloredCells.length;
 }
 
 
 // ==============================
-//TASK 4
+// TASK 4
 // ==============================
 
 function toggleDarkTheme() {
 
     document.body.classList.toggle("dark-theme");
+
+}
+
+
+// ==============================
+// TASK 5 — DummyJSON
+// ==============================
+
+
+// Текущий язык
+
+let currentLanguage = "ru";
+
+
+// ==============================
+// ВЫБОР ЯЗЫКА
+// ==============================
+
+function changeLanguage() {
+
+    currentLanguage =
+        document.getElementById("languageSelect").value;
+
+    loadProducts();
+}
+
+
+// ==============================
+// СОЗДАНИЕ ЗВЁЗД
+// ==============================
+
+function createStars(rating) {
+
+    let fullStars =
+        Math.round(rating);
+
+    let stars = "";
+
+    for (let i = 1; i <= 5; i++) {
+
+        if (i <= fullStars) {
+
+            stars += "★";
+
+        } else {
+
+            stars += "☆";
+        }
+    }
+
+    return stars;
+}
+
+
+// ==============================
+// ПОЛУЧЕНИЕ ТОВАРОВ
+// ==============================
+
+async function loadProducts() {
+
+    const response =
+        await fetch(
+            "https://dummyjson.com/products"
+        );
+
+    const data =
+        await response.json();
+
+    displayProducts(data.products);
+}
+
+
+// ==============================
+// ОТОБРАЖЕНИЕ ТОВАРОВ
+// ==============================
+
+function displayProducts(products) {
+
+    const container =
+        document.getElementById("products");
+
+    container.innerHTML = "";
+
+    products.forEach(product => {
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "product-card";
+
+
+        // Перевод подписей
+
+        let priceText;
+        let categoryText;
+        let descriptionText;
+        let ratingText;
+        let editText;
+        let deleteText;
+
+
+        if (currentLanguage === "ru") {
+
+            priceText = "Цена";
+            categoryText = "Категория";
+            descriptionText = "Описание";
+            ratingText = "Рейтинг";
+            editText = "Изменить";
+            deleteText = "Удалить";
+
+        } else {
+
+            priceText = "Price";
+            categoryText = "Category";
+            descriptionText = "Description";
+            ratingText = "Rating";
+            editText = "Edit";
+            deleteText = "Delete";
+        }
+
+
+        div.innerHTML = `
+
+            <img
+                src="${product.thumbnail}"
+                alt="${product.title}"
+                class="product-image"
+            >
+
+            <h3>
+                ${product.title}
+            </h3>
+
+
+            <p>
+                <strong>${priceText}:</strong>
+                $${product.price}
+            </p>
+
+
+            <p>
+                <strong>${categoryText}:</strong>
+                ${product.category}
+            </p>
+
+
+            <p>
+                <strong>${descriptionText}:</strong>
+                ${product.description}
+            </p>
+
+
+            <p>
+                <strong>${ratingText}:</strong>
+
+                <span class="product-rating">
+                    ${createStars(product.rating)}
+                </span>
+
+                ${product.rating}
+            </p>
+
+
+            <button
+                onclick="editProduct(${product.id})"
+            >
+                ${editText}
+            </button>
+
+
+            <button
+                onclick="deleteProduct(${product.id})"
+            >
+                ${deleteText}
+            </button>
+
+        `;
+
+
+        container.appendChild(div);
+    });
+}
+
+
+// ==============================
+// ПОИСК ТОВАРА
+// ==============================
+
+async function searchProducts() {
+
+    const searchText =
+        document.getElementById(
+            "searchInput"
+        ).value;
+
+
+    const response =
+        await fetch(
+            `https://dummyjson.com/products/search?q=${searchText}`
+        );
+
+
+    const data =
+        await response.json();
+
+
+    displayProducts(data.products);
+}
+
+
+// ==============================
+// ДОБАВЛЕНИЕ ТОВАРА
+// ==============================
+
+async function addProduct() {
+
+    const title =
+        document.getElementById(
+            "productTitle"
+        ).value;
+
+
+    const price =
+        document.getElementById(
+            "productPrice"
+        ).value;
+
+
+    if (title === "" || price === "") {
+
+        alert(
+            "Заполните название и цену"
+        );
+
+        return;
+    }
+
+
+    const response =
+        await fetch(
+            "https://dummyjson.com/products/add",
+            {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    title: title,
+
+                    price: Number(price)
+
+                })
+            }
+        );
+
+
+    const product =
+        await response.json();
+
+
+    // Создаём карточку нового товара
+
+    const container =
+        document.getElementById(
+            "products"
+        );
+
+
+    const div =
+        document.createElement("div");
+
+
+    div.className =
+        "product-card";
+
+
+    let editText =
+        currentLanguage === "ru"
+            ? "Изменить"
+            : "Edit";
+
+
+    let deleteText =
+        currentLanguage === "ru"
+            ? "Удалить"
+            : "Delete";
+
+
+    div.innerHTML = `
+
+        <h3>
+            ${product.title}
+        </h3>
+
+        <p>
+            <strong>
+                ${currentLanguage === "ru"
+                    ? "Цена"
+                    : "Price"}:
+            </strong>
+
+            $${product.price}
+        </p>
+
+        <p>
+            <strong>
+                ${currentLanguage === "ru"
+                    ? "Категория"
+                    : "Category"}:
+            </strong>
+
+            ${currentLanguage === "ru"
+                ? "Новый товар"
+                : "New product"}
+        </p>
+
+        <p>
+            <strong>
+                ${currentLanguage === "ru"
+                    ? "Описание"
+                    : "Description"}:
+            </strong>
+
+            ${currentLanguage === "ru"
+                ? "Описание отсутствует"
+                : "No description"}
+        </p>
+
+        <p>
+            <strong>
+                ${currentLanguage === "ru"
+                    ? "Рейтинг"
+                    : "Rating"}:
+            </strong>
+
+            <span class="product-rating">
+                ☆☆☆☆☆
+            </span>
+        </p>
+
+        <button
+            onclick="editProduct(${product.id})"
+        >
+            ${editText}
+        </button>
+
+        <button
+            onclick="deleteProduct(${product.id})"
+        >
+            ${deleteText}
+        </button>
+
+    `;
+
+
+    container.prepend(div);
+
+
+    alert(
+        "Товар добавлен: " +
+        product.title
+    );
+
+
+    // Очищаем поля
+
+    document.getElementById(
+        "productTitle"
+    ).value = "";
+
+
+    document.getElementById(
+        "productPrice"
+    ).value = "";
+}
+
+
+// ==============================
+// ИЗМЕНЕНИЕ ТОВАРА
+// ==============================
+
+async function editProduct(id) {
+
+    const newTitle =
+        prompt(
+            "Введите новое название товара:"
+        );
+
+
+    const newPrice =
+        prompt(
+            "Введите новую цену:"
+        );
+
+
+    if (
+        newTitle === null ||
+        newPrice === null
+    ) {
+
+        return;
+    }
+
+
+    const response =
+        await fetch(
+            `https://dummyjson.com/products/${id}`,
+            {
+
+                method: "PUT",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    title: newTitle,
+
+                    price: Number(newPrice)
+
+                })
+            }
+        );
+
+
+    const product =
+        await response.json();
+
+
+    alert(
+        "Товар изменён: " +
+        product.title
+    );
+
+
+    // Находим карточку товара
+
+    const cards =
+        document.querySelectorAll(
+            ".product-card"
+        );
+
+
+    cards.forEach(card => {
+
+        const button =
+            card.querySelector(
+                `button[onclick="editProduct(${id})"]`
+            );
+
+
+        if (button) {
+
+            // Меняем название
+
+            const title =
+                card.querySelector("h3");
+
+            title.textContent =
+                product.title;
+
+
+            // Меняем цену
+
+            const paragraphs =
+                card.querySelectorAll("p");
+
+
+            paragraphs[0].innerHTML =
+                `<strong>Цена:</strong> $${product.price}`;
+        }
+
+    });
+}
+
+
+// ==============================
+// УДАЛЕНИЕ ТОВАРА
+// ==============================
+
+async function deleteProduct(id) {
+
+    const response =
+        await fetch(
+            `https://dummyjson.com/products/${id}`,
+            {
+                method: "DELETE"
+            }
+        );
+
+
+    const product =
+        await response.json();
+
+
+    alert(
+        "Товар удалён: " +
+        product.title
+    );
+
+
+    // Удаляем карточку со страницы
+
+    const cards =
+        document.querySelectorAll(
+            ".product-card"
+        );
+
+
+    cards.forEach(card => {
+
+        const button =
+            card.querySelector(
+                `button[onclick="deleteProduct(${id})"]`
+            );
+
+
+        if (button) {
+
+            card.remove();
+        }
+
+    });
 
 }
