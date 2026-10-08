@@ -74,7 +74,22 @@
         <p><b>Навыки:</b> Web Design, HTML, CSS</p>
         <p><b>О себе:</b> Занимается дизайном и созданием интерфейсов сайтов.</p>
     </div>
+<div id="task5" class="tab-content">
+    <h2>Задание 5 — DummyJSON</h2>
 
+    <input type="text" id="searchInput" placeholder="Поиск товара">
+    <button onclick="searchProducts()">Поиск</button>
+
+    <button onclick="loadProducts()">Показать товары</button>
+
+    <h3>Добавить товар</h3>
+
+    <input type="text" id="productTitle" placeholder="Название">
+    <input type="number" id="productPrice" placeholder="Цена">
+    <button onclick="addProduct()">Добавить</button>
+
+    <div id="products"></div>
+</div>
     <script src="site1.js"></script>
 
 </body>

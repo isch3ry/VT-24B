@@ -1,8 +1,5 @@
-// ==============================
-// TASK 3
-// ==============================
 
-// Создание таблицы
+// TASK 3
 
 function createTable() {
 
@@ -11,10 +8,8 @@ function createTable() {
 
     let container = document.getElementById("table-container");
 
-    // Удаляем старую таблицу
     container.innerHTML = "";
 
-    // Сбрасываем счетчик
     updateCellCount();
 
     let table = document.createElement("table");
@@ -29,12 +24,11 @@ function createTable() {
 
             cell.textContent = (i + 1) + ", " + (j + 1);
 
-            // При клике меняем цвет
             cell.addEventListener("click", function() {
 
                 cell.classList.toggle("colored-cell");
 
-                // Сразу обновляем количество
+                
                 updateCellCount();
             });
 
@@ -48,8 +42,6 @@ function createTable() {
 }
 
 
-// Подсчет цветных ячеек
-
 function updateCellCount() {
 
     let coloredCells =
@@ -60,8 +52,6 @@ function updateCellCount() {
 }
 
 
-// Удаление таблицы
-
 function deleteTable() {
 
     let container = document.getElementById("table-container");
@@ -71,7 +61,6 @@ function deleteTable() {
     updateCellCount();
 }
 
-// Подсчет цветных ячеек
 
 function countColoredCells() {
 
@@ -83,9 +72,8 @@ function countColoredCells() {
 }
 
 
-// ==============================
 // TASK 4
-// ==============================
+
 
 function toggleDarkTheme() {
 
