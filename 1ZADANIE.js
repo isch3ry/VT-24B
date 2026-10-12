@@ -1150,18 +1150,9 @@ async function addProduct() {
 
 }
 
-
-
-
-
 // ==============================
-
 // ИЗМЕНЕНИЕ ТОВАРА
-
 // ==============================
-
-
-
 async function editProduct(id) {
 
 
@@ -1352,17 +1343,9 @@ async function editProduct(id) {
 
 }
 
-
-
-
-
 // ==============================
-
 // УДАЛЕНИЕ ТОВАРА
-
 // ==============================
-
-
 
 async function deleteProduct(id) {
 
