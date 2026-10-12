@@ -29,3 +29,29 @@ td { width: 60px; height: 40px; border: 1px solid black; text-align: center; cur
 .details-panel button { padding:8px 12px; margin-right:8px; cursor:pointer; }
 .dark-theme .todo-item, .dark-theme .details-panel { background:#393548; color:white; border-color:#777; }
 .dark-theme .todo-item:hover { background:#514a63; }
+
+/* Task 6 — список и модальные окна, стиль остальных вкладок сохранён */
+.task-controls { display:flex; flex-wrap:wrap; gap:10px; margin:16px 0; }
+.task-controls input, .task-controls select { padding:10px; border:1px solid #999; border-radius:6px; max-width:100%; }
+.task-controls input { flex:1; min-width:160px; }
+.todo-row { display:flex; gap:8px; align-items:center; padding:10px; margin:8px 0; background:#f5f5f5; border:1px solid #ccc; border-radius:8px; }
+.todo-row input { width:18px; height:18px; flex-shrink:0; }
+.todo-row button, .modal-actions button { padding:8px 10px; border:1px solid #999; border-radius:5px; background:white; cursor:pointer; }
+.todo-row button:hover, .modal-actions button:hover { background:#ddd; }
+.todo-row .todo-name { text-align:left; flex:1; border:none; background:transparent; }
+.todo-done { text-decoration:line-through; color:#777; }
+.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.55); display:flex; justify-content:center; align-items:center; padding:16px; z-index:1000; }
+.modal-overlay[hidden] { display:none !important; }
+#user-modal { z-index:1001; }
+.modal-box { position:relative; box-sizing:border-box; width:100%; max-width:520px; max-height:85vh; overflow-y:auto; padding:26px; border-radius:10px; background:white; color:#222; box-shadow:0 12px 40px rgba(0,0,0,.25); }
+.modal-close { position:absolute; top:10px; right:12px; font-size:26px; border:0; background:transparent; cursor:pointer; }
+.avatar-button { display:flex; align-items:center; gap:12px; background:#f5f5f5; border:1px solid #ccc; border-radius:8px; padding:10px; cursor:pointer; text-align:left; }
+.avatar-circle { display:flex; justify-content:center; align-items:center; width:50px; height:50px; border-radius:50%; background:#ddd; overflow:hidden; font-weight:bold; }
+.avatar-circle img { width:100%; height:100%; object-fit:cover; }
+.user-photo { display:block; width:90px; height:90px; object-fit:cover; border-radius:50%; background:#eee; }
+.modal-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+.dark-theme .todo-row, .dark-theme .avatar-button { background:#393548; color:white; border-color:#777; }
+.dark-theme .modal-box { background:#242136; color:white; }
+.dark-theme .todo-row button, .dark-theme .modal-actions button { background:#716767; color:white; border-color:#aaa; }
+.dark-theme .todo-done { color:#bbb; }
+@media(max-width:600px) { .todo-row { flex-wrap:wrap; } .todo-row .todo-name { flex-basis:calc(100% - 40px); } }
