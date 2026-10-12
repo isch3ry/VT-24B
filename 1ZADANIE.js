@@ -1728,6 +1728,8 @@ async function openTaskUser() {
     const panel = document.getElementById('user-modal');
     const info = document.getElementById('user-info');
     panel.hidden = false; info.textContent = 'Загрузка пользователя...';
+    const tasksPanel = document.getElementById('user-tasks');
+    tasksPanel.textContent = 'Загрузка задач пользователя...';
     try {
         const user = await getTaskUser(id);
         if (panel.hidden || !selectedTask || selectedTask.userId !== id) return;
@@ -1736,6 +1738,37 @@ async function openTaskUser() {
         const fields = [ ['ФИО', [user.firstName,user.maidenName,user.lastName].filter(Boolean).join(' ')], ['Логин', user.username], ['Возраст',user.age], ['Пол',user.gender], ['Дата рождения',user.birthDate], ['Email',user.email], ['Телефон',user.phone], ['Город',user.address?.city], ['Адрес',user.address?.address], ['Страна',user.address?.country], ['Университет',user.university], ['Компания',user.company?.name], ['Должность',user.company?.title], ['Отдел',user.company?.department] ];
         fields.forEach(([label,value]) => { if (value === undefined || value === null || value === '') return; const p = document.createElement('p'); const b = document.createElement('b'); b.textContent = label + ': '; p.append(b,document.createTextNode(String(value))); info.appendChild(p); });
     } catch (_) { info.textContent = 'Не удалось загрузить пользователя. Проверьте интернет.'; }
+    try {
+        const response = await fetch(`https://dummyjson.com/todos/user/${id}`);
+        if (!response.ok) throw new Error('Не удалось получить задачи');
+        const data = await response.json();
+        if (panel.hidden || !selectedTask || selectedTask.userId !== id) return;
+        const originalIds = new Set(originalTodos.map(t => t.id));
+        const currentById = new Map(fixedTodos.map(t => [t.id, t]));
+        const tasks = (data.todos || []).filter(t => !originalIds.has(t.id) || currentById.has(t.id))
+            .map(t => currentById.get(t.id) || t);
+        const list = document.createElement('ul');
+        list.className = 'user-todo-list';
+        tasks.forEach(task => {
+            const item = document.createElement('li');
+            const title = document.createElement('span');
+            title.textContent = task.todo;
+            const status = document.createElement('span');
+            status.className = task.completed ? 'user-task-done' : 'user-task-pending';
+            status.textContent = task.completed ? 'Выполнена' : 'Не выполнена';
+            item.append(title, status);
+            list.appendChild(item);
+        });
+        tasksPanel.replaceChildren();
+        const heading = document.createElement('h4');
+        heading.textContent = `Задачи пользователя (${tasks.length})`;
+        tasksPanel.appendChild(heading);
+        if (tasks.length) tasksPanel.appendChild(list);
+        else { const empty = document.createElement('p'); empty.textContent = 'Задач не найдено.'; tasksPanel.appendChild(empty); }
+    } catch (_) {
+        if (!panel.hidden && selectedTask && selectedTask.userId === id)
+            tasksPanel.textContent = 'Не удалось загрузить задачи пользователя. Проверьте интернет.';
+    }
 }
 document.querySelectorAll('.modal-overlay').forEach(modal => modal.addEventListener('click', e => { if (e.target === modal) { if (modal.id === 'user-modal') closeUserModal(); else closeTaskModal(); } }));
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (!document.getElementById('user-modal').hidden) closeUserModal(); else if (!document.getElementById('task-modal').hidden) closeTaskModal(); } });
