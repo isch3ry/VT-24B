@@ -55,3 +55,12 @@ td { width: 60px; height: 40px; border: 1px solid black; text-align: center; cur
 .dark-theme .todo-row button, .dark-theme .modal-actions button { background:#716767; color:white; border-color:#aaa; }
 .dark-theme .todo-done { color:#bbb; }
 @media(max-width:600px) { .todo-row { flex-wrap:wrap; } .todo-row .todo-name { flex-basis:calc(100% - 40px); } }
+
+/* Задачи пользователя внутри второго модального окна */
+.user-todo-list { list-style:none; padding:0; margin:10px 0; }
+.user-todo-list li { padding:10px 0; border-bottom:1px solid #ddd; display:flex; flex-direction:column; gap:5px; }
+.user-task-done { color:#267344; font-size:13px; }
+.user-task-pending { color:#9c5720; font-size:13px; }
+.dark-theme .user-todo-list li { border-color:#666; }
+.dark-theme .user-task-done { color:#90d8a2; }
+.dark-theme .user-task-pending { color:#ffc58a; }
