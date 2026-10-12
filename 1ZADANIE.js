@@ -1,1347 +1,681 @@
 // ==============================
-
 // ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК
-
 // ==============================
-
-
 
 function openTab(tabName) {
 
+    let tabs = document.querySelectorAll(".tab-content");
 
+    tabs.forEach(function(tab) {
+        tab.classList.remove("active");
+    });
 
-    let tabs = document.querySelectorAll(".tab-content");
-
-
-
-    tabs.forEach(function(tab) {
-
-        tab.classList.remove("active");
-
-    });
-
-
-
-    document.getElementById(tabName).classList.add("active");
-
+    document.getElementById(tabName).classList.add("active");
 }
 
 
-
-
-
 // ==============================
-
 // TASK 1
-
 // ==============================
-
-
 
 // 1. Изменение текста
 
-
-
 function changeText() {
 
+    let element = document.getElementById("text-element");
 
-
-    let element = document.getElementById("text-element");
-
-
-
-    element.textContent = "Привет, мир!";
-
+    element.textContent = "Привет, мир!";
 }
-
-
-
 
 
 // 2. Создание нового div
 
-
-
 function createNewDiv() {
 
+    let newDiv = document.createElement("div");
 
+    newDiv.className = "new-div";
 
-    let newDiv = document.createElement("div");
+    newDiv.textContent = "Я новый элемент";
 
-
-
-    newDiv.className = "new-div";
-
-
-
-    newDiv.textContent = "Я новый элемент";
-
-
-
-    document.body.appendChild(newDiv);
-
+    document.body.appendChild(newDiv);
 }
-
-
-
 
 
 // 3. Удаление элемента
 
-
-
 function deleteOldElement() {
 
+    let oldElement = document.querySelector(".old-element");
 
-
-    let oldElement = document.querySelector(".old-element");
-
-
-
-    if (oldElement) {
-
-        oldElement.remove();
-
-    }
-
+    if (oldElement) {
+        oldElement.remove();
+    }
 }
-
-
-
 
 
 // 4. Изменение абзаца
 
-
-
 let paragraph = document.getElementById("change-paragraph");
-
-
 
 paragraph.addEventListener("click", function() {
 
+    if (paragraph.style.color === "blue") {
 
+        paragraph.style.color = "";
+        paragraph.style.fontSize = "";
 
-    if (paragraph.style.color === "blue") {
+    } else {
 
-
-
-        paragraph.style.color = "";
-
-        paragraph.style.fontSize = "";
-
-
-
-    } else {
-
-
-
-        paragraph.style.color = "blue";
-
-        paragraph.style.fontSize = "24px";
-
-    }
-
-
+        paragraph.style.color = "blue";
+        paragraph.style.fontSize = "24px";
+    }
 
 });
 
 
-
-
-
 // ==============================
-
 // TASK 2
-
 // ==============================
-
-
 
 let classElement =
-
-    document.getElementById("class-element");
-
-
-
+    document.getElementById("class-element");
 
 
 function toggleActive() {
 
+    classElement.classList.toggle("active");
 
-
-    classElement.classList.toggle("active");
-
-
-
-    showClasses();
-
+    showClasses();
 }
-
-
-
 
 
 function showClasses() {
 
+    let classes = classElement.classList;
 
+    console.log(classes);
 
-    let classes = classElement.classList;
-
-
-
-    console.log(classes);
-
-
-
-    document.getElementById("class-list").textContent =
-
-        "Классы элемента: " + Array.from(classes).join(", ");
-
+    document.getElementById("class-list").textContent =
+        "Классы элемента: " + Array.from(classes).join(", ");
 }
 
 
-
-
-
 // ==============================
-
 // TASK 3
-
 // ==============================
-
-
 
 function createTable() {
 
+    let rows =
+        document.getElementById("rows").value;
 
+    let columns =
+        document.getElementById("columns").value;
 
-    let rows =
+    let container =
+        document.getElementById("table-container");
 
-        document.getElementById("rows").value;
+    container.innerHTML = "";
 
+    updateCellCount();
 
+    let table =
+        document.createElement("table");
 
-    let columns =
+    for (let i = 0; i < rows; i++) {
 
-        document.getElementById("columns").value;
+        let row =
+            document.createElement("tr");
 
+        for (let j = 0; j < columns; j++) {
 
+            let cell =
+                document.createElement("td");
 
-    let container =
+            cell.textContent =
+                (i + 1) + ", " + (j + 1);
 
-        document.getElementById("table-container");
+            cell.addEventListener("click", function() {
 
+                cell.classList.toggle("colored-cell");
 
+                updateCellCount();
+            });
 
-    container.innerHTML = "";
+            row.appendChild(cell);
+        }
 
+        table.appendChild(row);
+    }
 
-
-    updateCellCount();
-
-
-
-    let table =
-
-        document.createElement("table");
-
-
-
-    for (let i = 0; i < rows; i++) {
-
-
-
-        let row =
-
-            document.createElement("tr");
-
-
-
-        for (let j = 0; j < columns; j++) {
-
-
-
-            let cell =
-
-                document.createElement("td");
-
-
-
-            cell.textContent =
-
-                (i + 1) + ", " + (j + 1);
-
-
-
-            cell.addEventListener("click", function() {
-
-
-
-                cell.classList.toggle("colored-cell");
-
-
-
-                updateCellCount();
-
-            });
-
-
-
-            row.appendChild(cell);
-
-        }
-
-
-
-        table.appendChild(row);
-
-    }
-
-
-
-    container.appendChild(table);
-
+    container.appendChild(table);
 }
-
-
-
 
 
 function updateCellCount() {
 
+    let coloredCells =
+        document.querySelectorAll(".colored-cell");
 
-
-    let coloredCells =
-
-        document.querySelectorAll(".colored-cell");
-
-
-
-    document.getElementById("cell-count").textContent =
-
-        "Количество цветных ячеек: " +
-
-        coloredCells.length;
-
+    document.getElementById("cell-count").textContent =
+        "Количество цветных ячеек: " +
+        coloredCells.length;
 }
-
-
-
 
 
 function deleteTable() {
 
+    let container =
+        document.getElementById("table-container");
 
+    container.innerHTML = "";
 
-    let container =
-
-        document.getElementById("table-container");
-
-
-
-    container.innerHTML = "";
-
-
-
-    updateCellCount();
-
+    updateCellCount();
 }
-
-
-
 
 
 function countColoredCells() {
 
+    let coloredCells =
+        document.querySelectorAll(".colored-cell");
 
-
-    let coloredCells =
-
-        document.querySelectorAll(".colored-cell");
-
-
-
-    document.getElementById("cell-count").textContent =
-
-        "Количество цветных ячеек: " +
-
-        coloredCells.length;
-
+    document.getElementById("cell-count").textContent =
+        "Количество цветных ячеек: " +
+        coloredCells.length;
 }
 
 
-
-
-
 // ==============================
-
 // TASK 4
-
 // ==============================
-
-
 
 function toggleDarkTheme() {
 
-
-
-    document.body.classList.toggle("dark-theme");
-
-
+    document.body.classList.toggle("dark-theme");
 
 }
 
 
-
-
-
 // ==============================
-
 // TASK 5 — DummyJSON
-
 // ==============================
-
-
-
 
 
 // Текущий язык
 
-
-
 let currentLanguage = "ru";
 
 
-
-
-
 // ==============================
-
 // ВЫБОР ЯЗЫКА
-
 // ==============================
-
-
 
 function changeLanguage() {
 
+    currentLanguage =
+        document.getElementById("languageSelect").value;
 
-
-    currentLanguage =
-
-        document.getElementById("languageSelect").value;
-
-
-
-    loadProducts();
-
+    loadProducts();
 }
 
 
-
-
-
 // ==============================
-
 // СОЗДАНИЕ ЗВЁЗД
-
 // ==============================
-
-
 
 function createStars(rating) {
 
+    let fullStars =
+        Math.round(rating);
 
+    let stars = "";
 
-    let fullStars =
+    for (let i = 1; i <= 5; i++) {
 
-        Math.round(rating);
+        if (i <= fullStars) {
 
+            stars += "★";
 
+        } else {
 
-    let stars = "";
+            stars += "☆";
+        }
+    }
 
-
-
-    for (let i = 1; i <= 5; i++) {
-
-
-
-        if (i <= fullStars) {
-
-
-
-            stars += "★";
-
-
-
-        } else {
-
-
-
-            stars += "☆";
-
-        }
-
-    }
-
-
-
-    return stars;
-
+    return stars;
 }
 
 
-
-
-
 // ==============================
-
 // ПОЛУЧЕНИЕ ТОВАРОВ
-
 // ==============================
-
-
 
 async function loadProducts() {
 
+    const response =
+        await fetch(
+            "https://dummyjson.com/products"
+        );
 
+    const data =
+        await response.json();
 
-    const response =
-
-        await fetch(
-
-            "https\://dummyjson.com/products"
-
-        );
-
-
-
-    const data =
-
-        await response.json();
-
-
-
-    displayProducts(data.products);
-
+    displayProducts(data.products);
 }
 
 
-
-
-
 // ==============================
-
 // ОТОБРАЖЕНИЕ ТОВАРОВ
-
 // ==============================
-
-
 
 function displayProducts(products) {
 
+    const container =
+        document.getElementById("products");
 
+    container.innerHTML = "";
 
-    const container =
+    products.forEach(product => {
 
-        document.getElementById("products");
+        const div =
+            document.createElement("div");
 
+        div.className =
+            "product-card";
 
 
-    container.innerHTML = "";
+        // Перевод подписей
 
+        let priceText;
+        let categoryText;
+        let descriptionText;
+        let ratingText;
+        let editText;
+        let deleteText;
 
 
-    products.forEach(product => {
+        if (currentLanguage === "ru") {
 
+            priceText = "Цена";
+            categoryText = "Категория";
+            descriptionText = "Описание";
+            ratingText = "Рейтинг";
+            editText = "Изменить";
+            deleteText = "Удалить";
 
+        } else {
 
-        const div =
+            priceText = "Price";
+            categoryText = "Category";
+            descriptionText = "Description";
+            ratingText = "Rating";
+            editText = "Edit";
+            deleteText = "Delete";
+        }
 
-            document.createElement("div");
 
+        div.innerHTML = `
 
+            <img
+                src="${product.thumbnail}"
+                alt="${product.title}"
+                class="product-image"
+            >
 
-        div.className =
+            <h3>
+                ${product.title}
+            </h3>
 
-            "product-card";
 
+            <p>
+                <strong>${priceText}:</strong>
+                $${product.price}
+            </p>
 
 
+            <p>
+                <strong>${categoryText}:</strong>
+                ${product.category}
+            </p>
 
 
-        // Перевод подписей
+            <p>
+                <strong>${descriptionText}:</strong>
+                ${product.description}
+            </p>
 
 
+            <p>
+                <strong>${ratingText}:</strong>
 
-        let priceText;
+                <span class="product-rating">
+                    ${createStars(product.rating)}
+                </span>
 
-        let categoryText;
+                ${product.rating}
+            </p>
 
-        let descriptionText;
 
-        let ratingText;
+            <button
+                onclick="editProduct(${product.id})"
+            >
+                ${editText}
+            </button>
 
-        let editText;
 
-        let deleteText;
+            <button
+                onclick="deleteProduct(${product.id})"
+            >
+                ${deleteText}
+            </button>
 
+        `;
 
 
-
-
-        if (currentLanguage === "ru") {
-
-
-
-            priceText = "Цена";
-
-            categoryText = "Категория";
-
-            descriptionText = "Описание";
-
-            ratingText = "Рейтинг";
-
-            editText = "Изменить";
-
-            deleteText = "Удалить";
-
-
-
-        } else {
-
-
-
-            priceText = "Price";
-
-            categoryText = "Category";
-
-            descriptionText = "Description";
-
-            ratingText = "Rating";
-
-            editText = "Edit";
-
-            deleteText = "Delete";
-
-        }
-
-
-
-
-
-        div.innerHTML = `
-
-
-
-            <img
-
-                src="${product.thumbnail}"
-
-                alt="${product.title}"
-
-                class="product-image"
-
-            >
-
-
-
-            <h3>
-
-                ${product.title}
-
-            </h3>
-
-
-
-
-
-            <p>
-
-                <strong>${priceText}:</strong>
-
-                $${product.price}
-
-            </p>
-
-
-
-
-
-            <p>
-
-                <strong>${categoryText}:</strong>
-
-                ${product.category}
-
-            </p>
-
-
-
-
-
-            <p>
-
-                <strong>${descriptionText}:</strong>
-
-                ${product.description}
-
-            </p>
-
-
-
-
-
-            <p>
-
-                <strong>${ratingText}:</strong>
-
-
-
-                <span class="product-rating">
-
-                    ${createStars(product.rating)}
-
-                </span>
-
-
-
-                ${product.rating}
-
-            </p>
-
-
-
-
-
-            <button
-
-                onclick="editProduct(${product.id})"
-
-            >
-
-                ${editText}
-
-            </button>
-
-
-
-
-
-            <button
-
-                onclick="deleteProduct(${product.id})"
-
-            >
-
-                ${deleteText}
-
-            </button>
-
-
-
-        `;
-
-
-
-
-
-        container.appendChild(div);
-
-    });
-
+        container.appendChild(div);
+    });
 }
 
 
-
-
-
 // ==============================
-
 // ПОИСК ТОВАРА
-
 // ==============================
-
-
 
 async function searchProducts() {
 
+    const searchText =
+        document.getElementById(
+            "searchInput"
+        ).value;
 
 
-    const searchText =
-
-        document.getElementById(
-
-            "searchInput"
-
-        ).value;
+    const response =
+        await fetch(
+            `https://dummyjson.com/products/search?q=${searchText}`
+        );
 
 
+    const data =
+        await response.json();
 
 
-
-    const response =
-
-        await fetch(
-
-            `https\://dummyjson.com/products/search?q=${searchText}`
-
-        );
-
-
-
-
-
-    const data =
-
-        await response.json();
-
-
-
-
-
-    displayProducts(data.products);
-
+    displayProducts(data.products);
 }
 
 
-
-
-
 // ==============================
-
 // ДОБАВЛЕНИЕ ТОВАРА
-
 // ==============================
-
-
 
 async function addProduct() {
 
+    const title =
+        document.getElementById(
+            "productTitle"
+        ).value;
 
 
-    const title =
+    const price =
+        document.getElementById(
+            "productPrice"
+        ).value;
 
-        document.getElementById(
 
-            "productTitle"
+    if (title === "" || price === "") {
 
-        ).value;
+        alert(
+            "Заполните название и цену"
+        );
 
+        return;
+    }
 
 
+    const response =
+        await fetch(
+            "https://dummyjson.com/products/add",
+            {
 
+                method: "POST",
 
-    const price =
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
 
-        document.getElementById(
+                body: JSON.stringify({
 
-            "productPrice"
+                    title: title,
 
-        ).value;
+                    price: Number(price)
 
+                })
+            }
+        );
 
 
+    const product =
+        await response.json();
 
 
-    if (title === "" || price === "") {
+    // Создаём карточку нового товара
 
+    const container =
+        document.getElementById(
+            "products"
+        );
 
 
-        alert(
+    const div =
+        document.createElement("div");
 
-            "Заполните название и цену"
 
-        );
+    div.className =
+        "product-card";
 
 
+    let editText =
+        currentLanguage === "ru"
+            ? "Изменить"
+            : "Edit";
 
-        return;
 
-    }
+    let deleteText =
+        currentLanguage === "ru"
+            ? "Удалить"
+            : "Delete";
 
 
+    div.innerHTML = `
 
+        <h3>
+            ${product.title}
+        </h3>
 
+        <p>
+            <strong>
+                ${currentLanguage === "ru"
+                    ? "Цена"
+                    : "Price"}:
+            </strong>
 
-    const response =
+            $${product.price}
+        </p>
 
-        await fetch(
+        <p>
+            <strong>
+                ${currentLanguage === "ru"
+                    ? "Категория"
+                    : "Category"}:
+            </strong>
 
-            "https\://dummyjson.com/products/add",
+            ${currentLanguage === "ru"
+                ? "Новый товар"
+                : "New product"}
+        </p>
 
-            {
+        <p>
+            <strong>
+                ${currentLanguage === "ru"
+                    ? "Описание"
+                    : "Description"}:
+            </strong>
 
+            ${currentLanguage === "ru"
+                ? "Описание отсутствует"
+                : "No description"}
+        </p>
 
+        <p>
+            <strong>
+                ${currentLanguage === "ru"
+                    ? "Рейтинг"
+                    : "Rating"}:
+            </strong>
 
-                method: "POST",
+            <span class="product-rating">
+                ☆☆☆☆☆
+            </span>
+        </p>
 
+        <button
+            onclick="editProduct(${product.id})"
+        >
+            ${editText}
+        </button>
 
+        <button
+            onclick="deleteProduct(${product.id})"
+        >
+            ${deleteText}
+        </button>
 
-                headers: {
+    `;
 
-                    "Content-Type":
 
-                        "application/json"
+    container.prepend(div);
 
-                },
 
+    alert(
+        "Товар добавлен: " +
+        product.title
+    );
 
 
-                body: JSON.stringify({
+    // Очищаем поля
 
+    document.getElementById(
+        "productTitle"
+    ).value = "";
 
 
-                    title: title,
-
-
-
-                    price: Number(price)
-
-
-
-                })
-
-            }
-
-        );
-
-
-
-
-
-    const product =
-
-        await response.json();
-
-
-
-
-
-    // Создаём карточку нового товара
-
-
-
-    const container =
-
-        document.getElementById(
-
-            "products"
-
-        );
-
-
-
-
-
-    const div =
-
-        document.createElement("div");
-
-
-
-
-
-    div.className =
-
-        "product-card";
-
-
-
-
-
-    let editText =
-
-        currentLanguage === "ru"
-
-            ? "Изменить"
-
-            : "Edit";
-
-
-
-
-
-    let deleteText =
-
-        currentLanguage === "ru"
-
-            ? "Удалить"
-
-            : "Delete";
-
-
-
-
-
-    div.innerHTML = `
-
-
-
-        <h3>
-
-            ${product.title}
-
-        </h3>
-
-
-
-        <p>
-
-            <strong>
-
-                ${currentLanguage === "ru"
-
-                    ? "Цена"
-
-                    : "Price"}:
-
-            </strong>
-
-
-
-            $${product.price}
-
-        </p>
-
-
-
-        <p>
-
-            <strong>
-
-                ${currentLanguage === "ru"
-
-                    ? "Категория"
-
-                    : "Category"}:
-
-            </strong>
-
-
-
-            ${currentLanguage === "ru"
-
-                ? "Новый товар"
-
-                : "New product"}
-
-        </p>
-
-
-
-        <p>
-
-            <strong>
-
-                ${currentLanguage === "ru"
-
-                    ? "Описание"
-
-                    : "Description"}:
-
-            </strong>
-
-
-
-            ${currentLanguage === "ru"
-
-                ? "Описание отсутствует"
-
-                : "No description"}
-
-        </p>
-
-
-
-        <p>
-
-            <strong>
-
-                ${currentLanguage === "ru"
-
-                    ? "Рейтинг"
-
-                    : "Rating"}:
-
-            </strong>
-
-
-
-            <span class="product-rating">
-
-                ☆☆☆☆☆
-
-            </span>
-
-        </p>
-
-
-
-        <button
-
-            onclick="editProduct(${product.id})"
-
-        >
-
-            ${editText}
-
-        </button>
-
-
-
-        <button
-
-            onclick="deleteProduct(${product.id})"
-
-        >
-
-            ${deleteText}
-
-        </button>
-
-
-
-    `;
-
-
-
-
-
-    container.prepend(div);
-
-
-
-
-
-    alert(
-
-        "Товар добавлен: " +
-
-        product.title
-
-    );
-
-
-
-
-
-    // Очищаем поля
-
-
-
-    document.getElementById(
-
-        "productTitle"
-
-    ).value = "";
-
-
-
-
-
-    document.getElementById(
-
-        "productPrice"
-
-    ).value = "";
-
+    document.getElementById(
+        "productPrice"
+    ).value = "";
 }
+
 
 // ==============================
 // ИЗМЕНЕНИЕ ТОВАРА
 // ==============================
+
 async function editProduct(id) {
 
+    const newTitle =
+        prompt(
+            "Введите новое название товара:"
+        );
 
 
-    const newTitle =
+    const newPrice =
+        prompt(
+            "Введите новую цену:"
+        );
 
-        prompt(
 
-            "Введите новое название товара:"
+    if (
+        newTitle === null ||
+        newPrice === null
+    ) {
 
-        );
+        return;
+    }
 
 
+    const response =
+        await fetch(
+            `https://dummyjson.com/products/${id}`,
+            {
 
+                method: "PUT",
 
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
 
-    const newPrice =
+                body: JSON.stringify({
 
-        prompt(
+                    title: newTitle,
 
-            "Введите новую цену:"
+                    price: Number(newPrice)
 
-        );
+                })
+            }
+        );
 
 
+    const product =
+        await response.json();
 
 
+    alert(
+        "Товар изменён: " +
+        product.title
+    );
 
-    if (
 
-        newTitle === null ||
+    // Находим карточку товара
 
-        newPrice === null
+    const cards =
+        document.querySelectorAll(
+            ".product-card"
+        );
 
-    ) {
 
+    cards.forEach(card => {
 
+        const button =
+            card.querySelector(
+                `button[onclick="editProduct(${id})"]`
+            );
 
-        return;
 
-    }
+        if (button) {
 
+            // Меняем название
 
+            const title =
+                card.querySelector("h3");
 
+            title.textContent =
+                product.title;
 
 
-    const response =
+            // Меняем цену
 
-        await fetch(
+            const paragraphs =
+                card.querySelectorAll("p");
 
-            `https\://dummyjson.com/products/${id}`,
 
-            {
+            paragraphs[0].innerHTML =
+                `<strong>Цена:</strong> $${product.price}`;
+        }
 
-
-
-                method: "PUT",
-
-
-
-                headers: {
-
-                    "Content-Type":
-
-                        "application/json"
-
-                },
-
-
-
-                body: JSON.stringify({
-
-
-
-                    title: newTitle,
-
-
-
-                    price: Number(newPrice)
-
-
-
-                })
-
-            }
-
-        );
-
-
-
-
-
-    const product =
-
-        await response.json();
-
-
-
-
-
-    alert(
-
-        "Товар изменён: " +
-
-        product.title
-
-    );
-
-
-
-
-
-    // Находим карточку товара
-
-
-
-    const cards =
-
-        document.querySelectorAll(
-
-            ".product-card"
-
-        );
-
-
-
-
-
-    cards.forEach(card => {
-
-
-
-        const button =
-
-            card.querySelector(
-
-                `button[onclick="editProduct(${id})"]`
-
-            );
-
-
-
-
-
-        if (button) {
-
-
-
-            // Меняем название
-
-
-
-            const title =
-
-                card.querySelector("h3");
-
-
-
-            title.textContent =
-
-                product.title;
-
-
-
-
-
-            // Меняем цену
-
-
-
-            const paragraphs =
-
-                card.querySelectorAll("p");
-
-
-
-
-
-            paragraphs[0].innerHTML =
-
-                `<strong>Цена:</strong> $${product.price}`;
-
-        }
-
-
-
-    });
-
+    });
 }
+
 
 // ==============================
 // УДАЛЕНИЕ ТОВАРА
@@ -1349,91 +683,47 @@ async function editProduct(id) {
 
 async function deleteProduct(id) {
 
+    const response =
+        await fetch(
+            `https://dummyjson.com/products/${id}`,
+            {
+                method: "DELETE"
+            }
+        );
 
 
-    const response =
-
-        await fetch(
-
-            `https\://dummyjson.com/products/${id}`,
-
-            {
-
-                method: "DELETE"
-
-            }
-
-        );
+    const product =
+        await response.json();
 
 
+    alert(
+        "Товар удалён: " +
+        product.title
+    );
 
 
+    // Удаляем карточку со страницы
 
-    const product =
-
-        await response.json();
-
-
-
-
-
-    alert(
-
-        "Товар удалён: " +
-
-        product.title
-
-    );
+    const cards =
+        document.querySelectorAll(
+            ".product-card"
+        );
 
 
+    cards.forEach(card => {
+
+        const button =
+            card.querySelector(
+                `button[onclick="deleteProduct(${id})"]`
+            );
 
 
+        if (button) {
 
-    // Удаляем карточку со страницы
+            card.remove();
+        }
 
-
-
-    const cards =
-
-        document.querySelectorAll(
-
-            ".product-card"
-
-        );
-
-
-
-
-
-    cards.forEach(card => {
-
-
-
-        const button =
-
-            card.querySelector(
-
-                `button[onclick="deleteProduct(${id})"]`
-
-            );
-
-
-
-
-
-        if (button) {
-
-
-
-            card.remove();
-
-        }
-
-
-
-    });
-
-
+    });
 
 }
 // TASK 6 — точный список из предоставленного JSON
