@@ -3,191 +3,93 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>4 TASKS</title>
-    <link rel="stylesheet" href="1ZADANIE.css">
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="site1.css">
 </head>
 
 <body>
 
-    <h1>4 TASKS</h1>
+    <h1>Мой сайт</h1>
 
-    <!-- Кнопки вкладок -->
     <div class="tabs">
-    <button onclick="openTab('task1')">Task 1</button>
-    <button onclick="openTab('task2')">Task 2</button>
-    <button onclick="openTab('task3')">Task 3</button>
-    <button onclick="openTab('task4')">Task 4</button>
-    <button onclick="openTab('task5')">Task 5</button>
-</div>
-   
-
-
-    <!-- TASK 1 -->
-<div id="task1" class="tab-content active">
-
-    <h2>Task 1. Работа с JavaScript</h2>
-
-    <!-- 1. Изменение текста по ID -->
-    <h3>1. Изменение текста элемента</h3>
-
-    <p id="text-element">Исходный текст</p>
-
-    <button onclick="changeText()">
-        Изменить текст
-    </button>
-
-
-    <!-- 2. Создание нового элемента -->
-    <h3>2. Создание нового элемента</h3>
-
-    <button onclick="createNewDiv()">
-        Создать новый div
-    </button>
-
-
-    <!-- 3. Удаление элемента -->
-    <h3>3. Удаление элемента</h3>
-
-    <p class="old-element">
-        Этот элемент нужно удалить
-    </p>
-
-    <button onclick="deleteOldElement()">
-        Удалить old-element
-    </button>
-
-
-    <!-- 4. Изменение абзаца при клике -->
-    <h3>4. Изменение абзаца</h3>
-
-    <p id="change-paragraph">
-        Это изменяемый абзац.
-    </p>
-
-</div>
-
-
-    <!-- TASK 2 -->
-    <div id="task2" class="tab-content">
-
-        <h2>Task 2. Управление классами элементов</h2>
-
-        <div id="class-element" class="box">
-            Элемент для работы с классами
-        </div>
-
-        <br>
-
-        <button onclick="toggleActive()">
-            Добавить / удалить класс active
-        </button>
-
-        <button onclick="showClasses()">
-            Показать классы
-        </button>
-a
-        <p id="class-list">
-            Здесь появится список классов
-        </p>
-
+        <button onclick="openTab('home')">Главная</button>
+        <button onclick="openTab('danial')">Danial</button>
+        <button onclick="openTab('dias')">Dias</button>
+        <button onclick="openTab('ayazhan')">Ayazhan</button>
+        <button onclick="openTab('aliya')">Aliya</button>
+        <button onclick="openTab('tasks')">Задачи</button>
     </div>
 
+    <div id="home" class="tab-content active">
+        <h2>Главная</h2>
+        <p>Добро пожаловать на наш сайт!</p>
+        <p>На этом сайте представлены резюме участников нашей команды.</p>
+    </div>
 
-    <script src="1ZADANIE.js"></script>
+    <div id="danial" class="tab-content">
+        <h2>Danial</h2>
 
-        <!-- TASK 3 -->
-<div id="task3" class="tab-content">
+        <h3>Danial's CV</h3>
 
-    <h2>Task 3. Генерация таблицы</h2>
+        <p><b>Имя:</b> Danial</p>
+        <p><b>Специальность:</b> Программист</p>
+        <p><b>Навыки:</b> HTML, CSS, JavaScript</p>
+        <p><b>О себе:</b> Начинающий разработчик, изучающий веб-программирование.</p>
+    </div>
 
-    <p>Количество строк:</p>
-    <input type="number" id="rows" min="1">
+    <div id="dias" class="tab-content">
+        <h2>Dias</h2>
 
-    <p>Количество столбцов:</p>
-    <input type="number" id="columns" min="1">
+        <h3>Dias's CV</h3>
 
-    <br><br>
+        <p><b>Имя:</b> Dias</p>
+        <p><b>Специальность:</b> Программист</p>
+        <p><b>Навыки:</b> Java, SQL, HTML, CSS</p>
+        <p><b>О себе:</b> Студент, изучающий программирование и информационные технологии.</p>
+    </div>
 
-    <button onclick="createTable()">
-        Создать таблицу
-    </button>
+    <div id="ayazhan" class="tab-content">
+        <h2>Ayazhan</h2>
 
-    <button onclick="deleteTable()">
-        Удалить таблицу
-    </button>
+        <h3>Ayazhan's CV</h3>
 
-    <p id="cell-count">
-        Количество цветных ячеек: 0
-    </p>
+        <p><b>Имя:</b> Ayazhan</p>
+        <p><b>Специальность:</b> Веб-разработчик</p>
+        <p><b>Навыки:</b> HTML, CSS, JavaScript</p>
+        <p><b>О себе:</b> Интересуется созданием современных веб-сайтов.</p>
+    </div>
 
-    <div id="table-container"></div>
+    <div id="aliya" class="tab-content">
+        <h2>Aliya</h2>
 
-</div>
+        <h3>Aliya's CV</h3>
 
+        <p><b>Имя:</b> Aliya</p>
+        <p><b>Специальность:</b> Дизайнер</p>
+        <p><b>Навыки:</b> Web Design, HTML, CSS</p>
+        <p><b>О себе:</b> Занимается дизайном и созданием интерфейсов сайтов.</p>
+    </div>
 
-<!-- TASK 4 -->
-<div id="task4" class="tab-content">
+    <div id="tasks" class="tab-content">
+        <h2>Список задач</h2>
+        <div id="tasks-list">Загрузка задач...</div>
+        <div id="task-details" class="details-panel" hidden>
+            <h3>Информация о задаче</h3>
+            <p><b>ID задачи:</b> <span id="task-id"></span></p>
+            <p><b>Полное название:</b> <span id="task-title"></span></p>
+            <p><b>ID пользователя:</b> <span id="task-user-id"></span></p>
+            <p><b>Статус:</b> <span id="task-status"></span></p>
+            <button onclick="saveTask()">Сохранить</button>
+            <button onclick="openTaskUser()">Открыть</button>
+            <p id="save-message" aria-live="polite"></p>
+        </div>
+        <div id="user-details" class="details-panel" hidden>
+            <h3>Информация пользователя</h3>
+            <div id="user-info"></div>
+        </div>
+    </div>
 
-    <h2>Task 4. Темная тема</h2>
-
-    <p>
-        Нажмите на кнопку, чтобы изменить цветовой режим страницы.
-    </p>
-
-    <button onclick="toggleDarkTheme()">
-        Светлая / темная тема
-    </button>
-
-</div>
+    <script src="site1.js"></script>
 
 </body>
-
-<!-- TASK 5 -->
-<div id="task5" class="tab-content">
-
-    <h2>Task 5. Работа с DummyJSON</h2>
-    <label for="languageSelect">Язык:</label>
-
-<select id="languageSelect" onchange="changeLanguage()">
-    <option value="ru">Русский</option>
-    <option value="en">English</option>
-</select>
-
-    <button onclick="loadProducts()">
-        Загрузить товары
-    </button>
-
-    <br><br>
-
-    <input
-        type="text"
-        id="searchInput"
-        placeholder="Поиск товара"
-    >
-
-    <button onclick="searchProducts()">
-        Поиск
-    </button>
-
-    <h3>Добавить товар</h3>
-
-    <input
-        type="text"
-        id="productTitle"
-        placeholder="Название товара"
-    >
-
-    <input
-        type="number"
-        id="productPrice"
-        placeholder="Цена"
-    >
-
-    <button onclick="addProduct()">
-        Добавить
-    </button>
-
-    <div id="products"></div>
-
-</div>
 </html>
